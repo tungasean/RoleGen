@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{BF75F4AA-30EE-439A-B754-EE1E538BF507}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RoleGen/Form1.cs">
+    <Files>
+      <File FileName="RoleGen/Form1.cs" Line="14" Column="38" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.RoleGen PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>

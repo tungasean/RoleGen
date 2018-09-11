@@ -53,3 +53,11 @@ C:\TungData\Quant-Edge\RoleGen\RoleGen\obj\Debug\RoleGen.csproj.CoreCompileInput
 C:\TungData\Quant-Edge\RoleGen\RoleGen\obj\Debug\RoleGen.csproj.CopyComplete
 C:\TungData\Quant-Edge\RoleGen\RoleGen\obj\Debug\RoleGen.exe
 C:\TungData\Quant-Edge\RoleGen\RoleGen\obj\Debug\RoleGen.pdb
+C:\TungData\Quantedge\RoleGen\RoleGen\obj\Debug\RoleGen.csprojAssemblyReference.cache
+C:\TungData\Quantedge\RoleGen\RoleGen\obj\Debug\RoleGen.csproj.ResolveComReference.cache
+C:\TungData\Quantedge\RoleGen\RoleGen\obj\Debug\RoleGen.Form1.resources
+C:\TungData\Quantedge\RoleGen\RoleGen\obj\Debug\RoleGen.Properties.Resources.resources
+C:\TungData\Quantedge\RoleGen\RoleGen\obj\Debug\RoleGen.csproj.GenerateResource.cache
+C:\TungData\Quantedge\RoleGen\RoleGen\obj\Debug\RoleGen.csproj.CoreCompileInputs.cache
+C:\TungData\Quantedge\RoleGen\RoleGen\obj\Debug\RoleGen.exe
+C:\TungData\Quantedge\RoleGen\RoleGen\obj\Debug\RoleGen.pdb
