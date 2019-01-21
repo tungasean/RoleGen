@@ -342,8 +342,8 @@ namespace RoleGen
                     Excel.Range userRange = x.UsedRange;
                     int countRecords = userRange.Rows.Count;
                     //so cot la nhom quyen
-                    int rowRoleGroupStart = 6;
-                    int rowRoleGroupEnd = 30;
+                    int rowRoleGroupStart = 5;
+                    int rowRoleGroupEnd = 29;
 
                     //           var a = (x.Cells[5, 4] as Excel.Range).Value2;
                     string textGen = "";
@@ -351,7 +351,7 @@ namespace RoleGen
                     string strRoleRef = "";
 
 
-                    txtDisplay.Text = txtDisplay.Text + "DELETE RoleGroup;  " + "\r\n";
+                    txtDisplay.Text = txtDisplay.Text + "TRUNCATE TABLE RoleGroup;  " + "\r\n";
                     txtDisplay.Text = txtDisplay.Text + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'SnD.SCN_GDV', '1', '1', N'SnD.SCN_GDV', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'SnD.SCN_GDV');" + "\r\n";
                     txtDisplay.Text = txtDisplay.Text + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'SnD.SCN_TTQT', '1', '1', N'SnD.SCN_TTQT', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'SnD.SCN_TTQT');" + "\r\n";
                     txtDisplay.Text = txtDisplay.Text + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'SnD.CNDN_RM', '1', '1', N'SnD.CNDN_RM', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'SnD.CNDN_RM');" + "\r\n";
@@ -384,17 +384,17 @@ namespace RoleGen
                     string roleTypeId = "";
                     for (var i = 4; i <= 400; i++)
                     {
-                        var description = (x.Cells[i, 4] as Excel.Range).Value2;
-                        var name = (x.Cells[i, 3] as Excel.Range).Value2;
+                        var description = (x.Cells[i, 3] as Excel.Range).Value2;
+                        var name = (x.Cells[i, 2] as Excel.Range).Value2;
                         if (description == null || name == null) continue;
 
-                        if ((x.Cells[i, 5] as Excel.Range).Value2 != null)
+                        if ((x.Cells[i, 4] as Excel.Range).Value2 != null)
                         {
-                            roleTypeId = (x.Cells[i, 5] as Excel.Range).Value2.ToString();
+                            roleTypeId = (x.Cells[i, 4] as Excel.Range).Value2.ToString();
                         }
                         strRole =
                             "INSERT INTO Role (Name, Description, Enable, ActorChanged, TimeChanged, RoleType) SELECT N'" +
-                            description + "',N'" + name + "', '1', '0', GETDATE(), '" + roleTypeId + "' WHERE NOT EXISTS (SELECT RoleId FROM Role WHERE Name = '" + description + "';";
+                            description + "',N'" + name + "', '1', '0', GETDATE(), '" + roleTypeId + "' WHERE NOT EXISTS (SELECT RoleId FROM Role WHERE Name = '" + description + "');";
 
                         txtDisplay.Text = txtDisplay.Text + strRole + "\r\n";
 
@@ -456,7 +456,7 @@ namespace RoleGen
         {
             if (chkTech.Checked)
             {
-                txtSheetName.Text = "App-Detail_Vuong";
+                txtSheetName.Text = "Ma trận đầy đủ";
                 chkVietin.Checked = false;
                 chkMXV.Checked = false;
             }
