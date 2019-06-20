@@ -256,7 +256,7 @@ namespace RoleGen
                 //Danh cho viettin
                 if (chkVietin.Checked)
                 {
-
+                    
                     Microsoft.Office.Interop.Excel.Worksheet x = excel.ActiveWorkbook.Sheets[txtSheetName.Text] as Microsoft.Office.Interop.Excel.Worksheet;
                     //ma tran phan quyen vietin
                     Excel.Range userRange = x.UsedRange;
@@ -358,33 +358,39 @@ namespace RoleGen
                     var arrayValue = userRange.Value2;
                     String display = "";
 
-                    display = display + "TRUNCATE TABLE RoleGroup;  " + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'SnD.SCN_GDV', '1', '1', N'SnD.SCN_GDV', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'SnD.SCN_GDV');" + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'SnD.SCN_TTQT', '1', '1', N'SnD.SCN_TTQT', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'SnD.SCN_TTQT');" + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'SnD.CNDN_RM', '1', '1', N'SnD.CNDN_RM', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'SnD.CNDN_RM');" + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'SnD.CNDN_GDV', '1', '1', N'SnD.CNDN_GDV', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'SnD.CNDN_GDV');" + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'SnD.CNC_GDV', '1', '1', N'SnD.CNC_GDV', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'SnD.CNC_GDV');" + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'SND.GDV', '1', '1', N'SND.GDV', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'SND.GDV');" + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'SND.KSV', '1', '1', N'SND.KSV', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'SND.KSV');" + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'SND.THUQUY', '1', '1', N'SND.THUQUY', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'SND.THUQUY');" + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'SND.BAOCAO', '1', '1', N'SND.BAOCAO', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'SND.BAOCAO');" + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'WB.NHANLENH(MMDVACIB)', '1', '1', N'WB.NHANLENH(MMDVACIB)', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'WB.NHANLENH(MMDVACIB)');" + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'KNV.TRADER', '1', '1', N'KNV.TRADER', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'KNV.TRADER');" + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'KNV.TRADERMANAGER', '1', '1', N'KNV.TRADERMANAGER', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'KNV.TRADERMANAGER');" + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'KNV.SALE', '1', '1', N'KNV.SALE', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'KNV.SALE');" + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'KNV.SALEMANAGER', '1', '1', N'KNV.SALEMANAGER', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'KNV.SALEMANAGER');" + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'KNV.BSM', '1', '1', N'KNV.BSM', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'KNV.BSM');" + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'KVH.TREAOPS.CV', '1', '1', N'KVH.TREAOPS.CV', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'KVH.TREAOPS.CV');" + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'KVH.TREAOPS.KSV', '1', '1', N'KVH.TREAOPS.KSV', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'KVH.TREAOPS.KSV');" + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'QTRR.CV', '1', '1', N'QTRR.CV', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'QTRR.CV');" + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'TCKH.TFC.CV', '1', '1', N'TCKH.TFC.CV', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'TCKH.TFC.CV');" + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'WB.WBS', '1', '1', N'WB.WBS', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'WB.WBS');" + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'ADMIN', '1', '1', N'ADMIN', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'ADMIN');" + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'OT.ANTT', '1', '1', N'OT.ANTT', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'OT.ANTT');" + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'OT.VHUD.READONLY', '1', '1', N'OT.VHUD.READONLY', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'OT.VHUD.READONLY');" + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'OT.ITO.VHUD.OPS', '1', '1', N'OT.ITO.VHUD.OPS', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'OT.ITO.VHUD.OPS');" + "\r\n";
-                    display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'OT.DVKH', '1', '1', N'OT.DVKH', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'OT.DVKH');" + "\r\n";
-                    
+                    if (cb_RoleGroup.Checked)
+                    {
+                        display = display + "TRUNCATE TABLE RoleGroup;  " + "\r\n";
+
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'ADMIN', '1', '1', N'ADMIN', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'ADMIN');" + "\r\n";
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'SND.GDV', '1', '1', N'SND.GDV', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'SND.GDV');" + "\r\n";
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'SND.KSV', '1', '1', N'SND.KSV', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'SND.KSV');" + "\r\n";
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'KNV.TRADER', '1', '1', N'KNV.TRADER', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'KNV.TRADER');" + "\r\n";
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'KNV.TRADERMANAGER', '1', '1', N'KNV.TRADERMANAGER', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'KNV.TRADERMANAGER');" + "\r\n";
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'KNV.SALE', '1', '1', N'KNV.SALE', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'KNV.SALE');" + "\r\n";
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'KNV.SALEMANAGER', '1', '1', N'KNV.SALEMANAGER', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'KNV.SALEMANAGER');" + "\r\n";
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'KNV.BSM', '1', '1', N'KNV.BSM', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'KNV.BSM');" + "\r\n";
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'QTRR.CV', '1', '1', N'QTRR.CV', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'QTRR.CV');" + "\r\n";
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'TCKH.TFC.CV', '1', '1', N'TCKH.TFC.CV', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'TCKH.TFC.CV');" + "\r\n";
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'SND.THUQUY', '1', '1', N'SND.THUQUY', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'SND.THUQUY');" + "\r\n";
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'KVH.TREAOPS.CV', '1', '1', N'KVH.TREAOPS.CV', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'KVH.TREAOPS.CV');" + "\r\n";
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'KVH.TREAOPS.KSV', '1', '1', N'KVH.TREAOPS.KSV', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'KVH.TREAOPS.KSV');" + "\r\n";
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'WB.WBS', '1', '1', N'WB.WBS', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'WB.WBS');" + "\r\n";
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'WB.NHANLENH(MMDVACIB)', '1', '1', N'WB.NHANLENH(MMDVACIB)', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'WB.NHANLENH(MMDVACIB)');" + "\r\n";
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'OT.ITO.VHUD.OPS', '1', '1', N'OT.ITO.VHUD.OPS', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'OT.ITO.VHUD.OPS');" + "\r\n";
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'OT.ANTT', '1', '1', N'OT.ANTT', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'OT.ANTT');" + "\r\n";
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'OT.VHUD.READONLY', '1', '1', N'OT.VHUD.READONLY', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'OT.VHUD.READONLY');" + "\r\n";
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'OT.DVKH', '1', '1', N'OT.DVKH', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'OT.DVKH');" + "\r\n";
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'SND.BAOCAO', '1', '1', N'SND.BAOCAO', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'SND.BAOCAO');" + "\r\n";
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'SnD.CNDN_RM', '1', '1', N'SnD.CNDN_RM', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'SnD.CNDN_RM');" + "\r\n";
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'SnD.SCN_GDV', '1', '1', N'SnD.SCN_GDV', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'SnD.SCN_GDV');" + "\r\n";
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'SnD.SCN_TTQT', '1', '1', N'SnD.SCN_TTQT', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'SnD.SCN_TTQT');" + "\r\n";
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'SnD.CNDN_GDV', '1', '1', N'SnD.CNDN_GDV', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'SnD.CNDN_GDV');" + "\r\n";
+                        display = display + "INSERT INTO RoleGroup (Name, RoleGroupType, Status, Description, ActorChanged, TimeChanged, IsPendingChange) SELECT N'SnD.CNC_GDV', '1', '1', N'SnD.CNC_GDV', '1', GETDATE(), '0' WHERE NOT EXISTS (SELECT 1 FROM RoleGroup WHERE Name = 'SnD.CNC_GDV');" + "\r\n";
+
+                    }
+
+
                     display = display + "TRUNCATE TABLE Role;" + "\r\n";
                     display = display + "TRUNCATE TABLE RoleGroupRef;" + "\r\n";
                     string groupType = "";
@@ -447,6 +453,8 @@ namespace RoleGen
             if (chkMXV.Checked)
             {
                 txtSheetName.Text = "Phân Quyền MXV";
+                cb_RoleGroup.Checked = false;
+                cb_RoleGroup.Enabled = false;
                 chkVietin.Checked = false;
                 chkTech.Checked = false;
             }
@@ -457,6 +465,8 @@ namespace RoleGen
             if (chkVietin.Checked)
             {
                 txtSheetName.Text = "Rules_Scrip";
+                cb_RoleGroup.Checked = false;
+                cb_RoleGroup.Enabled = false;
                 chkMXV.Checked = false;
                 chkTech.Checked = false;
             }
@@ -467,6 +477,8 @@ namespace RoleGen
             if (chkTech.Checked)
             {
                 txtSheetName.Text = "Ma trận đầy đủ";
+                cb_RoleGroup.Checked = false;
+                cb_RoleGroup.Enabled = true;
                 chkVietin.Checked = false;
                 chkMXV.Checked = false;
             }

@@ -40,6 +40,8 @@
             this.chkTech = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSheetName = new System.Windows.Forms.TextBox();
+            this.cb_RoleGroup = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtDisplay
@@ -152,11 +154,35 @@
             this.txtSheetName.Size = new System.Drawing.Size(278, 20);
             this.txtSheetName.TabIndex = 67;
             // 
+            // cb_RoleGroup
+            // 
+            this.cb_RoleGroup.AutoSize = true;
+            this.cb_RoleGroup.Enabled = false;
+            this.cb_RoleGroup.ForeColor = System.Drawing.Color.Red;
+            this.cb_RoleGroup.Location = new System.Drawing.Point(15, 64);
+            this.cb_RoleGroup.Name = "cb_RoleGroup";
+            this.cb_RoleGroup.Size = new System.Drawing.Size(140, 17);
+            this.cb_RoleGroup.TabIndex = 68;
+            this.cb_RoleGroup.Text = "Có Gen lại Nhóm Quyền";
+            this.cb_RoleGroup.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Blue;
+            this.label4.Location = new System.Drawing.Point(12, 462);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(101, 13);
+            this.label4.TabIndex = 69;
+            this.label4.Text = "Made By: KingKong";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 484);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cb_RoleGroup);
             this.Controls.Add(this.txtSheetName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.chkTech);
@@ -189,6 +215,8 @@
         private System.Windows.Forms.CheckBox chkTech;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSheetName;
+        private System.Windows.Forms.CheckBox cb_RoleGroup;
+        private System.Windows.Forms.Label label4;
     }
 }
 
