@@ -42,6 +42,7 @@
             this.txtSheetName = new System.Windows.Forms.TextBox();
             this.cb_RoleGroup = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btn_open = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtDisplay
@@ -91,7 +92,7 @@
             // 
             // txtUrlRole
             // 
-            this.txtUrlRole.Location = new System.Drawing.Point(566, 35);
+            this.txtUrlRole.Location = new System.Drawing.Point(502, 35);
             this.txtUrlRole.Name = "txtUrlRole";
             this.txtUrlRole.Size = new System.Drawing.Size(390, 20);
             this.txtUrlRole.TabIndex = 60;
@@ -99,7 +100,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(353, 42);
+            this.label3.Location = new System.Drawing.Point(289, 42);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(207, 13);
             this.label3.TabIndex = 61;
@@ -176,11 +177,22 @@
             this.label4.TabIndex = 69;
             this.label4.Text = "Made By: KingKong";
             // 
+            // btn_open
+            // 
+            this.btn_open.Location = new System.Drawing.Point(897, 33);
+            this.btn_open.Name = "btn_open";
+            this.btn_open.Size = new System.Drawing.Size(28, 23);
+            this.btn_open.TabIndex = 70;
+            this.btn_open.Text = "...";
+            this.btn_open.UseVisualStyleBackColor = true;
+            this.btn_open.Click += new System.EventHandler(this.Btn_open_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 484);
+            this.Controls.Add(this.btn_open);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cb_RoleGroup);
             this.Controls.Add(this.txtSheetName);
@@ -196,7 +208,7 @@
             this.Controls.Add(this.btnCreateScript);
             this.Controls.Add(this.txtDisplay);
             this.Name = "Form1";
-            this.Text = "Tạo script ma trận role";
+            this.Text = "RoleGen";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,6 +229,7 @@
         private System.Windows.Forms.TextBox txtSheetName;
         private System.Windows.Forms.CheckBox cb_RoleGroup;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btn_open;
     }
 }
 

@@ -89,3 +89,4 @@ C:\TungNguyen\QuantEdge\Tools\RoleGen\RoleGen\obj\Debug\RoleGen.csproj.CoreCompi
 C:\TungNguyen\QuantEdge\Tools\RoleGen\RoleGen\obj\Debug\RoleGen.csproj.CopyComplete
 C:\TungNguyen\QuantEdge\Tools\RoleGen\RoleGen\obj\Debug\RoleGen.exe
 C:\TungNguyen\QuantEdge\Tools\RoleGen\RoleGen\obj\Debug\RoleGen.pdb
+C:\TungNguyen\QuantEdge\Tools\RoleGen\RoleGen\bin\Debug\ExcelDataReader.pdb

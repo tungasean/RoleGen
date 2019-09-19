@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29025.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoleGen", "RoleGen\RoleGen.csproj", "{BF75F4AA-30EE-439A-B754-EE1E538BF507}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenScript", "GenScript\GenScript.csproj", "{84E2699E-F183-434B-9C83-59B1D70AB071}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateUser", "CreateUser\CreateUser.csproj", "{FC071F36-3F68-484F-8169-B0A5B7DF9630}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{BF75F4AA-30EE-439A-B754-EE1E538BF507}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF75F4AA-30EE-439A-B754-EE1E538BF507}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF75F4AA-30EE-439A-B754-EE1E538BF507}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84E2699E-F183-434B-9C83-59B1D70AB071}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84E2699E-F183-434B-9C83-59B1D70AB071}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84E2699E-F183-434B-9C83-59B1D70AB071}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84E2699E-F183-434B-9C83-59B1D70AB071}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC071F36-3F68-484F-8169-B0A5B7DF9630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC071F36-3F68-484F-8169-B0A5B7DF9630}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC071F36-3F68-484F-8169-B0A5B7DF9630}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC071F36-3F68-484F-8169-B0A5B7DF9630}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

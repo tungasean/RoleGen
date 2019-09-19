@@ -45,6 +45,16 @@ namespace RoleGen
             Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
             Microsoft.Office.Interop.Excel.Workbook sheet = excel.Workbooks.Open(txtUrlRole.Text);
 
+            Excel.Application xlApp = new Excel.Application();
+            Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(txtUrlRole.Text);
+            // Lấy Sheet 1
+            Excel.Worksheet xlWorksheet = (Excel.Worksheet) xlWorkbook.Sheets[txtSheetName.Text] as Excel.Worksheet;
+            // Lấy phạm vi dữ liệu
+            Excel.Range userRange = xlWorksheet.UsedRange;
+            int countRecords = userRange.Rows.Count;
+            // Tạo mảng lưu trữ dữ liệu
+            object[,] valueArray = (object[,])userRange.get_Value(Excel.XlRangeValueDataType.xlRangeValueDefault);
+
             try
             {
                 #region Role For MXV
@@ -52,9 +62,6 @@ namespace RoleGen
                 if (chkMXV.Checked)
                 {
                     //ma tran phan quyen mxv
-                    Microsoft.Office.Interop.Excel.Worksheet x = excel.ActiveWorkbook.Sheets[txtSheetName.Text] as Microsoft.Office.Interop.Excel.Worksheet;
-                    Excel.Range userRange = x.UsedRange;
-                    int countRecords = userRange.Rows.Count;
                     //so cot la nhom quyen
                     int rowRoleGroupStart = 8;
                     int rowRoleGroupEnd = 16;
@@ -90,19 +97,19 @@ namespace RoleGen
                     for (var i = 2; i <= countRecords; i++)
                     {
 
-                        var description = (x.Cells[i, 5] as Excel.Range).Value2;
-                        var name = (x.Cells[i, 4] as Excel.Range).Value2;
+                        var description = (xlWorksheet.Cells[i, 5] as Excel.Range).Value2;
+                        var name = (xlWorksheet.Cells[i, 4] as Excel.Range).Value2;
                         if (description == null || name == null) continue;
 
-                        if ((x.Cells[i, 7] as Excel.Range).Value2 != null)
+                        if ((xlWorksheet.Cells[i, 7] as Excel.Range).Value2 != null)
                         {
-                            roleTypeId = (x.Cells[i, 7] as Excel.Range).Value2.ToString();
+                            roleTypeId = (xlWorksheet.Cells[i, 7] as Excel.Range).Value2.ToString();
                         }
 
-                        var newKey = (x.Cells[i, 5] as Excel.Range).Value2.ToString();
+                        var newKey = (xlWorksheet.Cells[i, 5] as Excel.Range).Value2.ToString();
                         var oldKey = "";
-                        if ((x.Cells[i, 6] as Excel.Range).Value2 != null)
-                            oldKey = (x.Cells[i, 6] as Excel.Range).Value2.ToString();
+                        if ((xlWorksheet.Cells[i, 6] as Excel.Range).Value2 != null)
+                            oldKey = (xlWorksheet.Cells[i, 6] as Excel.Range).Value2.ToString();
                         if (newKey != null)
                             ArrNewKey[i] = newKey.ToString();
                         if (oldKey != null)
@@ -116,7 +123,7 @@ namespace RoleGen
                         int count = 2;
                         for (var j = rowRoleGroupStart; j <= rowRoleGroupEnd; j++)
                         {
-                            string check = (x.Cells[i, j] as Excel.Range).Value2;
+                            string check = (xlWorksheet.Cells[i, j] as Excel.Range).Value2;
                             if (check == "X")
                             {
                                 strRoleRef =
@@ -255,12 +262,7 @@ namespace RoleGen
                 #region Role For VietinBank
                 //Danh cho viettin
                 if (chkVietin.Checked)
-                {
-                    
-                    Microsoft.Office.Interop.Excel.Worksheet x = excel.ActiveWorkbook.Sheets[txtSheetName.Text] as Microsoft.Office.Interop.Excel.Worksheet;
-                    //ma tran phan quyen vietin
-                    Excel.Range userRange = x.UsedRange;
-                    int countRecords = userRange.Rows.Count;
+                {//ma tran phan quyen vietin
                     //so cot la nhom quyen
                     int rowRoleGroupStart = 9;
                     int rowRoleGroupEnd = 24;
@@ -296,14 +298,14 @@ namespace RoleGen
                     string roleTypeId = "";
                     for (var i = 3; i <= countRecords; i++)
                     {
-
-                        var description = (x.Cells[i, 6] as Excel.Range).Value2;
-                        var name = (x.Cells[i, 7] as Excel.Range).Value2;
+                        if(valueArray[i, 6] == null || valueArray[i, 7] == null) continue;
+                        var description = valueArray[i, 6].ToString();
+                        var name = valueArray[i, 7].ToString();
                         if (description == null || name == null) continue;
 
-                        if ((x.Cells[i, 8] as Excel.Range).Value2 != null)
+                        if (valueArray[i, 8] != null)
                         {
-                            roleTypeId = (x.Cells[i, 8] as Excel.Range).Value2.ToString();
+                            roleTypeId = valueArray[i, 8].ToString();
                         }
                         strRole =
                             "INSERT INTO Role (ActorChanged, Description, Enable, Name, RoleId, RoleType, TimeChanged) VALUES (0,'" +
@@ -313,12 +315,14 @@ namespace RoleGen
                         int count = 1;
                         for (var j = rowRoleGroupStart; j <= rowRoleGroupEnd; j++)
                         {
-                            string check = (x.Cells[i, j] as Excel.Range).Value2;
-                            if (!string.IsNullOrEmpty(check))
+                            var check = valueArray[i, j];
+                            if(check == null) continue;
+                            if (!string.IsNullOrEmpty(check.ToString()))
                             {
+                                var nameGroup = valueArray[2, j];
                                 strRoleRef =
-                                    "INSERT INTO RoleGroupRef (ActorChanged, IsPendingChange, RoleGroupId, RoleId, TimeChanged) VALUES (0, 0, " +
-                                    count + ", " + id + ", SYSDATE);";
+                                    "INSERT INTO RoleGroupRef (ActorChanged, IsPendingChange, RoleGroupId, RoleId, TimeChanged) SELECT 0, 0, " +
+                                    "(SELECT RoleGroupId FROM RoleGroup WHERE Name = '" + nameGroup + "'), (SELECT RoleId FROM Role WHERE Name = '" + description + "') , SYSDATE;";
                                 displayVtb = displayVtb + strRoleRef + "\r\n";
                             }
                             count++;
@@ -342,10 +346,7 @@ namespace RoleGen
                 #region Role For Techcombank
                 if (chkTech.Checked)
                 {
-                    Microsoft.Office.Interop.Excel.Worksheet x = excel.ActiveWorkbook.Sheets[txtSheetName.Text] as Microsoft.Office.Interop.Excel.Worksheet;
                     //ma tran phan quyen TechCombank
-                    Excel.Range userRange = x.UsedRange;
-                    int countRecords = userRange.Rows.Count;
                     //so cot la nhom quyen
                     int rowRoleGroupStart = 5;
                     int rowRoleGroupEnd = 32;
@@ -355,7 +356,6 @@ namespace RoleGen
                     string strRole = "";
                     string strRoleRef = "";
 
-                    var arrayValue = userRange.Value2;
                     String display = "";
 
                     if (cb_RoleGroup.Checked)
@@ -401,13 +401,13 @@ namespace RoleGen
                     string roleTypeId = "";
                     for (var i = 4; i <= countRecords; i++)
                     {
-                        var description = arrayValue[i, 3];
-                        var name = arrayValue[i, 2];
+                        var description = valueArray[i, 3];
+                        var name = valueArray[i, 2];
                         if (description == null || name == null) continue;
 
-                        if (arrayValue[i, 4] != null)
+                        if (valueArray[i, 4] != null)
                         {
-                            roleTypeId = arrayValue[i, 4].ToString();
+                            roleTypeId = valueArray[i, 4].ToString();
                         }
                         strRole =
                             "INSERT INTO Role (Name, Description, Enable, ActorChanged, TimeChanged, RoleType) SELECT N'" +
@@ -417,12 +417,12 @@ namespace RoleGen
 
                         for (var j = rowRoleGroupStart; j <= rowRoleGroupEnd; j++)
                         {
-                            var a = arrayValue[i, j];
+                            var a = valueArray[i, j];
                             string check = null;
                             if (a != null) check = a.ToString();
                             if (!string.IsNullOrEmpty(check) && check == "x")
                             {
-                                var nameGroup = arrayValue[3, j];
+                                var nameGroup = valueArray[3, j];
                                 strRoleRef =
                                     "INSERT INTO RoleGroupRef (ActorChanged, IsPendingChange, RoleGroupId, RoleId, TimeChanged) SELECT '0', '0', (SELECT RoleGroupId FROM RoleGroup WHERE Name = '" +
                                     nameGroup + "'), (SELECT RoleId FROM Role WHERE Name = '" + description + "') , GETDATE() WHERE EXISTS (SELECT RoleGroupId FROM RoleGroup WHERE Name = '" + nameGroup + "') AND EXISTS (SELECT RoleId FROM Role WHERE Name = '" +
@@ -486,6 +486,31 @@ namespace RoleGen
                 cb_RoleGroup.Enabled = true;
                 chkVietin.Checked = false;
                 chkMXV.Checked = false;
+            }
+        }
+
+        private void Btn_open_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog
+            {
+                InitialDirectory = @"C:\",
+                Title = "Browse Text Files",
+
+                CheckFileExists = true,
+                CheckPathExists = true,
+
+                //DefaultExt = "xlsx",
+                Filter = "All files (*.*)|*.*",
+                FilterIndex = 2,
+                RestoreDirectory = true,
+
+                ReadOnlyChecked = true,
+                ShowReadOnly = true
+            };
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                txtUrlRole.Text = openFileDialog1.FileName;
             }
         }
     }
