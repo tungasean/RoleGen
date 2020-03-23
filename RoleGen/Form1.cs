@@ -275,59 +275,80 @@ namespace RoleGen
 
                     String displayVtb = "";
 
-                    displayVtb = displayVtb + "TRUNCATE TABLE RoleGroup;  " + "\r\n";
-                    displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'GDV CN', 1, NULL, 1, SYSDATE); " + "\r\n";
-                    displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'GDV PGD', 2, NULL, 1, SYSDATE);" + "\r\n";
-                    displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'KS CN', 3, NULL, 1, SYSDATE);" + "\r\n";
-                    displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'KS PGD', 4, NULL, 1, SYSDATE);" + "\r\n";
-                    displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'GĐ CN', 5, NULL, 1, SYSDATE);" + "\r\n";
-                    displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'Sales', 6, NULL, 1, SYSDATE);" + "\r\n";
-                    displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'Sales Mn', 7, NULL, 1, SYSDATE);" + "\r\n";
-                    displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'Control (Sales)', 8, NULL, 1, SYSDATE);" + "\r\n";
-                    displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'Trader', 9, NULL, 1, SYSDATE);" + "\r\n";
-                    displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'Trader Mn', 10, NULL, 1, SYSDATE);" + "\r\n";
-                    displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'MO', 11, NULL, 1, SYSDATE);" + "\r\n";
-                    displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'BO', 12, NULL, 1, SYSDATE);" + "\r\n";
-                    displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'IT', 13, NULL, 1, SYSDATE);" + "\r\n";
-                    displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'Admin', 14, NULL, 1, SYSDATE);" + "\r\n";
-                    displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'Full quyền', 15, NULL, 1, SYSDATE);" + "\r\n";
-                    displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'View', 16, NULL, 1, SYSDATE);" + "\r\n";
-                    displayVtb = displayVtb + "TRUNCATE TABLE Role;" + "\r\n";
-                    displayVtb = displayVtb + "TRUNCATE TABLE RoleGroupRef;" + "\r\n";
+                    if (cb_RoleGroup.Checked)
+                    {
+                        displayVtb = displayVtb + "TRUNCATE TABLE RoleGroup;  " + "\r\n";
+                        displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'GDV CN', 1, NULL, 1, SYSDATE); " + "\r\n";
+                        displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'GDV PGD', 2, NULL, 1, SYSDATE);" + "\r\n";
+                        displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'KS CN', 3, NULL, 1, SYSDATE);" + "\r\n";
+                        displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'KS PGD', 4, NULL, 1, SYSDATE);" + "\r\n";
+                        displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'GĐ CN', 5, NULL, 1, SYSDATE);" + "\r\n";
+                        displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'Sales', 6, NULL, 1, SYSDATE);" + "\r\n";
+                        displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'Sales Mn', 7, NULL, 1, SYSDATE);" + "\r\n";
+                        displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'Control (Sales)', 8, NULL, 1, SYSDATE);" + "\r\n";
+                        displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'Trader', 9, NULL, 1, SYSDATE);" + "\r\n";
+                        displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'Trader Mn', 10, NULL, 1, SYSDATE);" + "\r\n";
+                        displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'MO', 11, NULL, 1, SYSDATE);" + "\r\n";
+                        displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'BO', 12, NULL, 1, SYSDATE);" + "\r\n";
+                        displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'IT', 13, NULL, 1, SYSDATE);" + "\r\n";
+                        displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'Admin', 14, NULL, 1, SYSDATE);" + "\r\n";
+                        displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'Full quyền', 15, NULL, 1, SYSDATE);" + "\r\n";
+                        displayVtb = displayVtb + "INSERT INTO RoleGroup(ActorChanged, Description, IsPendingChange, Name, RoleGroupId, RoleGroupType, Status, TimeChanged) VALUES(0, '', 0, 'View', 16, NULL, 1, SYSDATE);" + "\r\n";
+                        displayVtb = displayVtb + "TRUNCATE TABLE Role;" + "\r\n";
+                        displayVtb = displayVtb + "TRUNCATE TABLE RoleGroupRef;" + "\r\n";
+                    }
+
+                    displayVtb = displayVtb + "DECLARE" + "\r\n" + "p_maxRoleId NUMBER;" + "\r\n" + "BEGIN " + "\r\n" + "SELECT Max(RoleId) INTO p_maxRoleId FROM Role;" + "\r\n"; 
+
                     string groupType = "";
                     string roleTypeId = "";
                     for (var i = 3; i <= countRecords; i++)
                     {
-                        if(valueArray[i, 6] == null || valueArray[i, 7] == null) continue;
-                        var description = valueArray[i, 6].ToString();
-                        var name = valueArray[i, 7].ToString();
-                        if (description == null || name == null) continue;
+                        
+                            if (valueArray[i, 6] == null || valueArray[i, 7] == null) continue;
+                            var description = valueArray[i, 6].ToString();
+                            var name = valueArray[i, 7].ToString();
+                            if (description == null || name == null) continue;
 
-                        if (valueArray[i, 8] != null)
-                        {
-                            roleTypeId = valueArray[i, 8].ToString();
-                        }
-                        strRole =
-                            "INSERT INTO Role (ActorChanged, Description, Enable, Name, RoleId, RoleType, TimeChanged) VALUES (0,'" +
-                            description + "','1', '" + name + "', " + id + "," + roleTypeId + ", SYSDATE);";
-
-                        displayVtb = displayVtb + strRole + "\r\n";
-                        int count = 1;
-                        for (var j = rowRoleGroupStart; j <= rowRoleGroupEnd; j++)
-                        {
-                            var check = valueArray[i, j];
-                            if(check == null) continue;
-                            if (!string.IsNullOrEmpty(check.ToString()))
+                            if (valueArray[i, 1] != null)
                             {
-                                var nameGroup = valueArray[2, j];
-                                strRoleRef =
-                                    "INSERT INTO RoleGroupRef (ActorChanged, IsPendingChange, RoleGroupId, RoleId, TimeChanged) SELECT 0, 0, " +
-                                    "(SELECT RoleGroupId FROM RoleGroup WHERE Name = '" + nameGroup + "'), (SELECT RoleId FROM Role WHERE Name = '" + description + "') , SYSDATE;";
-                                displayVtb = displayVtb + strRoleRef + "\r\n";
+                                displayVtb = "\r\n" + displayVtb +
+                                             "Delete FROM RoleGroupRef WHERE RoleId IN (SELECT RoleId FROM Role WHERE Name = ' " + name +"'); \r\n";
                             }
-                            count++;
-                        }
-                        //add vao nhom full quyen
+                            else
+                            {
+
+                                if (valueArray[i, 8] != null)
+                                {
+                                    roleTypeId = valueArray[i, 8].ToString();
+                                }
+
+                                strRole =
+                                    "INSERT INTO Role (ActorChanged, Description, Enable, Name, RoleId, RoleType, TimeChanged) VALUES (0,'" +
+                                    description + "','1', '" + name + "', " + "p_maxRoleId + " + id + "," + roleTypeId +
+                                    ", SYSDATE);";
+
+                                displayVtb = displayVtb + strRole + "\r\n";
+                                int count = 1;
+                                for (var j = rowRoleGroupStart; j <= rowRoleGroupEnd; j++)
+                                {
+                                    var check = valueArray[i, j];
+                                    if (check == null) continue;
+                                    if (!string.IsNullOrEmpty(check.ToString()))
+                                    {
+                                        var nameGroup = valueArray[2, j];
+                                        strRoleRef =
+                                            "INSERT INTO RoleGroupRef (ActorChanged, IsPendingChange, RoleGroupId, RoleId, TimeChanged) SELECT 0, 0, RoleGroupId, " 
+                                            + "p_maxRoleId + " + id + " , SYSDATE FROM RoleGroup WHERE Name = '" + nameGroup + "';";
+                                        displayVtb = displayVtb + strRoleRef + "\r\n";
+                                    }
+
+                                    count++;
+                                }
+                            }
+
+
+                            //add vao nhom full quyen
                         //                        string strAddFull =
                         //                            "INSERT INTO RoleGroupRef (ActorChanged, IsPendingChange, RoleGroupId, RoleId, TimeChanged) VALUES (0, 0, " +
                         //                            10 + ", " + id + ", SYSDATE);";
@@ -337,6 +358,7 @@ namespace RoleGen
 
                     }
 
+                    displayVtb = displayVtb + "\r\n" + "END;\r\n";
                     txtDisplay.Text = displayVtb; 
                     MessageBox.Show("", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -469,9 +491,9 @@ namespace RoleGen
         {
             if (chkVietin.Checked)
             {
-                txtSheetName.Text = "Rules_Scrip";
+                txtSheetName.Text = "quyền mới";
                 cb_RoleGroup.Checked = false;
-                cb_RoleGroup.Enabled = false;
+                cb_RoleGroup.Enabled = true;
                 chkMXV.Checked = false;
                 chkTech.Checked = false;
             }
